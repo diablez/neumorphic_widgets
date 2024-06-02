@@ -1,39 +1,111 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Neumorphic Widgets
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package provides a set of neumorphic design widgets for Flutter. Neumorphism is a design trend that combines aspects of both flat design and skeuomorphism. This package makes it easy to incorporate this design style into your Flutter apps.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- NeuAppBar: A neumorphic design app bar.
+- NeuButton: A neumorphic design button.
+- NeuCheckbox: A neumorphic design checkbox.
+- NeuContainer: A neumorphic design container.
+- NeuSlider: A neumorphic design slider.
+- NeuSwitch: A neumorphic design switch.
 
-## Getting started
+## Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add `neumorphic_widgets` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
+
+## Demo App
+
+To see all the widgets in action, check out the demo app. You can find the source code for the demo app in this [GitHub repository](https://github.com/yourusername/neumorphic_widgets_demo).
+
+To run the demo app:
+
+1. Clone the repository: `git clone https://github.com/yourusername/neumorphic_widgets_demo.git`
+2. Navigate into the project directory: `cd neumorphic_widgets_demo`
+3. Get the Flutter packages: `flutter pub get`
+4. Run the app: `flutter run`
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here is a simple example of using `NeuButton`:
 
 ```dart
-const like = 'sample';
-```
+NeuButton(
+  onPressed: (isTap) {
+    print('NeuButton pressed. isTap: $isTap');
+  },
+  child: Text('NeuButton'),
+  boxShadowColor: Colors.grey[500]!,
+  tapMode: TapMode.dynamic,
+  enabled: true,
+)
+`NeuContainer` is a neumorphic design container. Here is a simple example of using `NeuContainer`:
 
-## Additional information
+```dart
+NeuContainer(
+  onPressed: () {
+    print('NeuContainer pressed');
+  },
+  child: Text('NeuContainer'),
+  boxShadowColor: Colors.grey[500]!,
+  radius: 15,
+  padding: EdgeInsets.all(10),
+  tapMode: TapMode.dynamic,
+)
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+And here is an example of using `NeuSwitch`:
+
+```dart
+NeuSwitch(
+  onChanged: (value) {
+    print('NeuSwitch value: $value');
+  },
+  value: false,
+  boxShadow: Colors.grey[500]!,
+  enabled: true,
+)
+
+And here is an example of using `NeuAppBar`:
+
+```dart
+NeuAppBar(
+  isScrolled: ValueNotifier<bool>(false),
+  boxShadowColor: Colors.grey[500]!,
+  title: Text('NeuAppBar'),
+  leading: Icon(Icons.menu),
+  centerTitle: true,
+  actions: <Widget>[
+    IconButton(
+      icon: Icon(Icons.search),
+      onPressed: () {
+        print('Search button pressed');
+      },
+    ),
+  ],
+)
+
+And here is an example of using `NeuSlider`:
+
+```dart
+NeuSlider(
+  onChanged: (value) {
+    print('NeuSlider value: $value');
+  },
+  value: 50,
+  boxShadow: Colors.grey[500]!,
+  enabled: true,
+  length: 200,
+  width: 30,
+)
+
+
+And here is an example of using `NeuCheckbox`:
+
+```dart
+NeuCheckbox(
+  boxShadowColor: Colors.grey[500]!,
+  isChecked: false,
+  activeColor: Colors.green,
+  enable: true,
+)
