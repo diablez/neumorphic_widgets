@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphics/src/neu_container.dart';
+import 'package:neumorphism_widgets/src/neu_container.dart';
 
 class NeuCheckbox extends StatefulWidget {
   final Color boxShadowColor;

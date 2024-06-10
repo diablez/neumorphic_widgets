@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "neumorphics",
+            "name": "neumorphism_widgets",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "neumorphics (profile mode)",
+            "name": "neumorphism_widgets (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "neumorphics (release mode)",
+            "name": "neumorphism_widgets (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

@@ -1,7 +1,7 @@
-name: neumorphics
+name: neumorphism_widgets
 description: "A packege that provides neumorphic widgets for flutter."
 version: 0.0.1
-homepage: https://github.com/diablez/neumorphics
+homepage: https://github.com/diablez/neumorphism_widgets
 
 environment:
   sdk: '>=3.4.0 <4.0.0'

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:neumorphics/neumorphics.dart';
+import 'package:neumorphism_widgets/neumorphics.dart';
 
 void main() {
   testWidgets('NeuButton test', (WidgetTester tester) async {

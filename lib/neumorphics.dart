@@ -1,4 +1,4 @@
-library neumorphics;
+library neumorphism_widgets;
 
 export 'src/neu_container.dart';
 export 'src/neu_button.dart';
