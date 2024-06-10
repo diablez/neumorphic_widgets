@@ -5,7 +5,7 @@ This package provides a set of neumorphic design widgets for Flutter. Neumorphis
 ## Features
 
 - NeuAppBar: A neumorphic design app bar.
-![AppBar](./assets/appbar_2.png)
+![AppBar](./assets/appbar (2).png)
 - NeuButton: A neumorphic design button.
 ![Buttons and Checkboxes](./assets/buttons.png)
 - NeuCheckbox: A neumorphic design checkbox.
