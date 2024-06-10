@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphism_widgets/neumorphics.dart';
+import 'package:neumorphism_widgets/neumorphism_widgets.dart';
 
 class NeuSwitch extends StatefulWidget {
   final ValueChanged<bool> onChanged;

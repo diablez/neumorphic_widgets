@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphism_widgets/neumorphics.dart';
+import 'package:neumorphism_widgets/neumorphism_widgets.dart';
 
 class NeuSlider extends StatefulWidget {
   final ValueChanged<double> onChanged;
