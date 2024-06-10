@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_widgets/src/neu_container.dart';
+import 'package:neumorphics/src/neu_container.dart';
 
 class NeuAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color boxShadowColor;
   final Widget title;
-  final ValueNotifier<bool> isScrolled;
+  final ValueNotifier<bool>? isScrolled;
   final Widget? leading;
   final bool centerTitle;
   final Color? color;
@@ -14,7 +14,7 @@ class NeuAppBar extends StatefulWidget implements PreferredSizeWidget {
   final TextStyle? titleTextStyle;
   const NeuAppBar(
       {super.key,
-      required this.isScrolled,
+      this.isScrolled,
       this.bottom,
       this.toolbarTextStyle,
       this.titleTextStyle,
@@ -37,8 +37,11 @@ class NeuAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _NeuAppBarState extends State<NeuAppBar> {
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<bool> isScrolled =
+        widget.isScrolled ?? ValueNotifier<bool>(false);
+
     return ValueListenableBuilder<bool>(
-      valueListenable: widget.isScrolled,
+      valueListenable: isScrolled,
       builder: (context, value, child) {
         return Padding(
           padding: const EdgeInsets.all(4.0),

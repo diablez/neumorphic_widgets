@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_widgets/neumorphic_widgets.dart';
+import 'package:neumorphics/neumorphics.dart';
 
 class NeuSwitch extends StatefulWidget {
   final ValueChanged<bool> onChanged;
   final bool value;
   final bool onStart;
-  final Color boxShadow;
+  final Color boxShadowColor;
   final bool enabled;
   final Color? activeColor;
+  final Color? inactiveColor;
+  final bool vertical;
   const NeuSwitch(
       {super.key,
       this.activeColor = const Color.fromRGBO(77, 255, 82, 1),
+      this.inactiveColor,
+      this.vertical = false,
       required this.onChanged,
       required this.value,
-      required this.boxShadow,
+      required this.boxShadowColor,
       this.enabled = true,
       this.onStart = false});
 
@@ -24,6 +28,33 @@ class NeuSwitch extends StatefulWidget {
 class _NeuSwitchState extends State<NeuSwitch>
     with SingleTickerProviderStateMixin {
   late bool isSwitched;
+  double butsize = 20.0;
+
+  void handleDragUpdate(DragUpdateDetails details) {
+    if (widget.enabled) {
+      if (details.delta.dx > 0 || details.delta.dy > 0) {
+        if (!isSwitched) {
+          toggleSwitch(true);
+          widget.onChanged(isSwitched);
+        }
+      } else if (details.delta.dx < 0 || details.delta.dy < 0) {
+        if (isSwitched) {
+          toggleSwitch(false);
+          widget.onChanged(isSwitched);
+        }
+      }
+    }
+  }
+
+  void handleDragEnd() {
+    if (widget.enabled) {
+      setState(() {
+        butsize = isSwitched
+            ? 30.0
+            : 20.0; // Reset the size of the button when it's released
+      });
+    }
+  }
 
   @override
   void initState() {
@@ -68,7 +99,7 @@ class _NeuSwitchState extends State<NeuSwitch>
       child: NeuContainer(
         tapMode: widget.enabled == true ? TapMode.none : TapMode.flat,
         enabled: widget.enabled,
-        boxShadowColor: widget.boxShadow,
+        boxShadowColor: widget.boxShadowColor,
         onPressed: () {
           if (widget.enabled) {
             toggleSwitch(!isSwitched);
@@ -80,15 +111,22 @@ class _NeuSwitchState extends State<NeuSwitch>
         inset: true,
         padding: const EdgeInsets.all(0),
         child: SizedBox(
-          width: size,
-          height: 30,
+          width: widget.vertical ? 30 : size,
+          height: widget.vertical ? size : 30,
           child: AnimatedAlign(
-            alignment:
-                isSwitched ? Alignment.centerRight : Alignment.centerLeft,
+            alignment: widget.vertical
+                ? isSwitched
+                    ? Alignment.topCenter
+                    : Alignment.bottomCenter
+                : isSwitched
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
             duration: const Duration(milliseconds: 500),
             curve: Curves.fastOutSlowIn,
             child: Padding(
-              padding: const EdgeInsets.only(left: 5.0),
+              padding: widget.vertical
+                  ? const EdgeInsets.only(bottom: 5)
+                  : const EdgeInsets.only(left: 5.0),
               child: GestureDetector(
                 onPanDown: (details) {
                   if (widget.enabled) {
@@ -99,28 +137,16 @@ class _NeuSwitchState extends State<NeuSwitch>
                   }
                 },
                 onPanUpdate: (details) {
-                  if (widget.enabled) {
-                    if (details.delta.dx > 0) {
-                      if (!isSwitched) {
-                        toggleSwitch(true);
-                        widget.onChanged(isSwitched);
-                      }
-                    } else if (details.delta.dx < 0) {
-                      if (isSwitched) {
-                        toggleSwitch(false);
-                        widget.onChanged(isSwitched);
-                      }
-                    }
-                  }
+                  handleDragUpdate(details);
                 },
                 onPanEnd: (details) {
-                  if (widget.enabled) {
-                    setState(() {
-                      butsize = isSwitched
-                          ? 30.0
-                          : 20.0; // Reset the size of the button when it's released
-                    });
-                  }
+                  handleDragEnd();
+                },
+                onVerticalDragUpdate: (details) {
+                  handleDragUpdate(details);
+                },
+                onVerticalDragEnd: (details) {
+                  handleDragEnd();
                 },
                 child: AnimatedContainer(
                   width: butsize,
@@ -131,7 +157,7 @@ class _NeuSwitchState extends State<NeuSwitch>
                     tapMode:
                         widget.enabled == true ? TapMode.dynamic : TapMode.flat,
                     enabled: widget.enabled,
-                    boxShadowColor: widget.boxShadow,
+                    boxShadowColor: widget.boxShadowColor,
                     onStart: widget.onStart,
                     shape: BoxShape.circle,
                     onPressed: () {
@@ -142,7 +168,7 @@ class _NeuSwitchState extends State<NeuSwitch>
                     },
                     color: isSwitched
                         ? widget.activeColor?.withOpacity(0.6)
-                        : null,
+                        : widget.inactiveColor?.withOpacity(0.6),
                   ),
                 ),
               ),

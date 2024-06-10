@@ -13,32 +13,34 @@ This package provides a set of neumorphic design widgets for Flutter. Neumorphis
 
 ## Getting Started
 
-To use this package, add `neumorphic_widgets` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
+To use this package, add `neumorphics` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
 
 ## Demo App
 
-To see all the widgets in action, check out the demo app. You can find the source code for the demo app in this [GitHub repository](https://github.com/yourusername/neumorphic_widgets_demo).
+To see all the widgets in action, check out the demo app. You can find the source code for the demo app in this [GitHub repository](https://github.com/yourusername/neumorphics_demo).
 
 To run the demo app:
 
-1. Clone the repository: `git clone https://github.com/yourusername/neumorphic_widgets_demo.git`
-2. Navigate into the project directory: `cd neumorphic_widgets_demo`
+1. Clone the repository: `git clone https://github.com/yourusername/neumorphics_demo.git`
+2. Navigate into the project directory: `cd neumorphics_demo`
 3. Get the Flutter packages: `flutter pub get`
 4. Run the app: `flutter run`
 
 ## Usage
 
-Here is a simple example of using `NeuButton`:
+Here is an example of how to use the widgets and their options:
+
+`NeuButton`, a neumorphic button:
 
 ```dart
 NeuButton(
   onPressed: (isTap) {
     print('NeuButton pressed. isTap: $isTap');
-  },
-  child: Text('NeuButton'),
-  boxShadowColor: Colors.grey[500]!,
-  tapMode: TapMode.dynamic,
-  enabled: true,
+  }, // relatively the same as a standard on pressed
+  child: Text('NeuButton'), // required for buttons
+  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
+  tapMode: TapMode.dynamic, // tapmode is the animation for the button.
+  enabled: true, // controlls the onPressed.
 )
 `NeuContainer` is a neumorphic design container. Here is a simple example of using `NeuContainer`:
 
@@ -46,12 +48,13 @@ NeuButton(
 NeuContainer(
   onPressed: () {
     print('NeuContainer pressed');
-  },
-  child: Text('NeuContainer'),
-  boxShadowColor: Colors.grey[500]!,
+  },// relatively the same as a standard on pressed
+  child: Text('NeuContainer'), // widgets you want to have inside the container
+  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
   radius: 15,
-  padding: EdgeInsets.all(10),
-  tapMode: TapMode.dynamic,
+  shape: BoxShape.rectangle, // can be set to circle or rectangle, defaults to rectangle
+  padding: EdgeInsets.all(10), // the padding around the child widgets in the container
+  tapMode: TapMode.dynamic, // tapmode is the animation for the button, defaults to none
 )
 
 And here is an example of using `NeuSwitch`:
@@ -60,8 +63,8 @@ And here is an example of using `NeuSwitch`:
 NeuSwitch(
   onChanged: (value) {
     print('NeuSwitch value: $value');
-  },
-  value: false,
+  }, // same as standard on changed
+  value: false, 
   boxShadow: Colors.grey[500]!,
   enabled: true,
 )

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_widgets/neumorphic_widgets.dart';
+import 'package:neumorphics/neumorphics.dart';
 
 class NeuSlider extends StatefulWidget {
   final ValueChanged<double> onChanged;
@@ -10,13 +10,13 @@ class NeuSlider extends StatefulWidget {
   final Gradient? gradient;
   final dynamic handleColor;
   final bool onStart;
-  final Color boxShadow;
+  final Color boxShadowColor;
   final bool enabled;
   final double length;
   final double width;
   const NeuSlider(
       {super.key,
-      required this.boxShadow,
+      required this.boxShadowColor,
       required this.onChanged,
       this.vertical = false,
       this.value = 0,
@@ -61,7 +61,7 @@ class _NeuSliderState extends State<NeuSlider> {
       child: NeuContainer(
         tapMode: widget.enabled == true ? TapMode.none : TapMode.flat,
         enabled: widget.enabled,
-        boxShadowColor: widget.boxShadow,
+        boxShadowColor: widget.boxShadowColor,
         onStart: widget.onStart,
         color: widget.color.withOpacity(widget.withOpacity
             ? ((_currentSliderValue.clamp(0, 100) / 100) - 0.4).clamp(0.0, 1.0)
@@ -132,8 +132,8 @@ class _NeuSliderState extends State<NeuSlider> {
                           border: Border.all(
                             width: 1,
                             color: widget.enabled
-                                ? lightenColor(widget.boxShadow, 0.17)
-                                : darkenColor(widget.boxShadow, 0.1),
+                                ? lightenColor(widget.boxShadowColor, 0.17)
+                                : darkenColor(widget.boxShadowColor, 0.1),
                           ),
                           shape: BoxShape.circle,
                           gradient: widget.enabled
@@ -141,12 +141,18 @@ class _NeuSliderState extends State<NeuSlider> {
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                   colors: [
-                                    lightenColor(widget.boxShadow, 0.17),
-                                    darkenColor(widget.boxShadow, 0.1)
+                                    lightenColor(
+                                        widget.handleColor ??
+                                            widget.boxShadowColor,
+                                        0.17),
+                                    darkenColor(
+                                        widget.handleColor ??
+                                            widget.boxShadowColor,
+                                        0.1)
                                   ],
                                 )
                               : null,
-                          color: widget.enabled ? null : widget.boxShadow,
+                          color: widget.enabled ? null : widget.boxShadowColor,
                         ),
                       )),
                 ),

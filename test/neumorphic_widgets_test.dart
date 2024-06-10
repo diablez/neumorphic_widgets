@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:neumorphic_widgets/neumorphic_widgets.dart';
+import 'package:neumorphics/neumorphics.dart';
 
 void main() {
   testWidgets('NeuButton test', (WidgetTester tester) async {
@@ -61,7 +61,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: NeuSwitch(
-          boxShadow: Colors.black,
+          boxShadowColor: Colors.black,
           onChanged: (value) {
             switchValue = value;
           },
@@ -107,7 +107,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: NeuSlider(
-          boxShadow: Colors.black,
+          boxShadowColor: Colors.black,
           onChanged: (value) {
             sliderValue = value;
           },

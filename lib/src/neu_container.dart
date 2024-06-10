@@ -61,11 +61,12 @@ class NeuContainer extends StatefulWidget {
 class _NeuContainerState extends State<NeuContainer> {
   bool isTap = false;
   Timer? _tapTimer; // Declare a Timer for the tap
-
   @override
   void initState() {
     super.initState();
-    _updateTapState();
+    if (widget.tapMode == TapMode.flat) {
+      isTap = true;
+    }
   }
 
   @override

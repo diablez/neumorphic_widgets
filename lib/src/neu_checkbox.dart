@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_widgets/src/neu_container.dart';
+import 'package:neumorphics/src/neu_container.dart';
 
 class NeuCheckbox extends StatefulWidget {
   final Color boxShadowColor;
@@ -8,6 +8,7 @@ class NeuCheckbox extends StatefulWidget {
   final Color? activeColor;
   final bool enable;
   final TapMode tapMode;
+  final Color? inactiveColor;
   const NeuCheckbox(
       {super.key,
       this.tapMode = TapMode.dynamic,
@@ -15,6 +16,7 @@ class NeuCheckbox extends StatefulWidget {
       this.isChecked = false,
       this.shape = BoxShape.rectangle,
       this.activeColor = const Color.fromARGB(255, 118, 255, 3),
+      this.inactiveColor,
       this.enable = true});
 
   @override
@@ -36,7 +38,9 @@ class _NeuCheckboxState extends State<NeuCheckbox> {
         enabled: widget.enable,
         padding: const EdgeInsets.all(3),
         tapMode: widget.enable ? widget.tapMode : TapMode.flat,
-        color: checked ? widget.activeColor?.withOpacity(0.6) : null,
+        color: checked
+            ? widget.activeColor?.withOpacity(0.6)
+            : widget.inactiveColor,
         boxShadowColor: widget.boxShadowColor,
         shape: widget.shape,
         onPressed: () {

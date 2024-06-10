@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_widgets/neumorphic_widgets.dart';
+import 'package:neumorphics/neumorphics.dart';
 
 class NeuButton extends StatefulWidget {
   final Color boxShadowColor;
