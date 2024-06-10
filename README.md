@@ -2,6 +2,9 @@
 
 This package provides a set of neumorphic design widgets for Flutter. Neumorphism is a design trend that combines aspects of both flat design and skeuomorphism. This package makes it easy to incorporate this design style into your Flutter apps.
 
+## GitHub 
+https://github.com/diablez/neumorphic_widgets
+
 ## Features
 
 - NeuAppBar: A neumorphic design app bar.
