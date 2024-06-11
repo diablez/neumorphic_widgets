@@ -64,7 +64,7 @@ class _NeuContainerState extends State<NeuContainer> {
   @override
   void initState() {
     super.initState();
-    if (widget.tapMode == TapMode.flat) {
+    if (widget.tapMode == TapMode.flat || widget.enabled == false) {
       isTap = true;
     }
   }
@@ -84,7 +84,7 @@ class _NeuContainerState extends State<NeuContainer> {
   }
 
   void _updateTapState() {
-    if (widget.onStart) {
+    if (widget.onStart || widget.enabled == false) {
       isTap = true;
       _tapTimer = Timer(const Duration(seconds: 1), () {
         if (mounted) {
