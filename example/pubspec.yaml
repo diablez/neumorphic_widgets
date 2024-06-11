@@ -1,5 +1,6 @@
 name: example
-description: "A new Flutter project."
+description: "Example for neumorphism_widgets."
+repository: https://github.com/diablez/neumorphic_widgets/tree/main/example
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'https://pub.dev' # This line allows the package to be published to pub.dev
