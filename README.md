@@ -23,16 +23,9 @@ https://github.com/diablez/neumorphic_widgets
 
 To use this package, add `neumorphism_widgets` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
 
-## Demo App
+## Examples
 
-To see all the widgets in action, check out the demo app. You can find the source code for the demo app in this [GitHub repository](https://github.com/yourusername/neumorphism_widgets_demo).
-
-To run the demo app:
-
-1. Clone the repository: `git clone https://github.com/yourusername/neumorphism_widgets_demo.git`
-2. Navigate into the project directory: `cd neumorphism_widgets_demo`
-3. Get the Flutter packages: `flutter pub get`
-4. Run the app: `flutter run`
+Check out the `example` directory to see examples of how to use this package.
 
 ## Usage
 
