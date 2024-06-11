@@ -1,3 +1,9 @@
+## 0.0.6
+* fixed animation for enable
+
+## 0.0.5
+* Cleaned package and demo app
+
 ## 0.0.4
 * Migrated to null safety.
 
