@@ -9,6 +9,7 @@ class NeuButton extends StatefulWidget {
   final Color? color;
   final TapMode tapMode;
   final bool enabled;
+  final BoxShape shape;
   const NeuButton({
     super.key,
     required this.boxShadowColor,
@@ -16,6 +17,7 @@ class NeuButton extends StatefulWidget {
     required this.child,
     this.onStart = false,
     this.color,
+    this.shape = BoxShape.rectangle,
     this.enabled = true,
     this.tapMode = TapMode.dynamic,
   });
@@ -31,6 +33,7 @@ class _NeuButtonState extends State<NeuButton> {
   Widget build(BuildContext context) {
     return NeuContainer(
       tapMode: widget.enabled == true ? widget.tapMode : TapMode.flat,
+      shape: widget.shape,
       enabled: widget.enabled,
       color: widget.color,
       onStart: widget.onStart,
