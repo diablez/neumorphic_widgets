@@ -1,8 +1,5 @@
-## 1.0.0+1
-
-* Migrated to null safety.
-
 ## 0.0.4
+* Migrated to null safety.
 
 * Added examples for the package.
 
