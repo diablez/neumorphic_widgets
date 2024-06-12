@@ -1,3 +1,6 @@
+## 0.0.7
+* fix: Update _updateTapState logic in NeuContainer
+
 ## 0.0.6
 * fixed animation for enable
 
