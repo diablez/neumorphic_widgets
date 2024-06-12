@@ -84,11 +84,12 @@ class _NeuContainerState extends State<NeuContainer> {
   }
 
   void _updateTapState() {
-    if (widget.onStart || widget.enabled == false) {
+    if (widget.enabled == false) {
+      isTap = true;
+    } else if (widget.onStart) {
       isTap = true;
       _tapTimer = Timer(const Duration(seconds: 1), () {
         if (mounted) {
-          // Check if the widget is still in the tree
           setState(() {
             isTap = false;
           });
@@ -98,7 +99,6 @@ class _NeuContainerState extends State<NeuContainer> {
       isTap = true;
       _tapTimer = Timer(const Duration(seconds: 0), () {
         if (mounted) {
-          // Check if the widget is still in the tree
           setState(() {
             isTap = false;
           });
@@ -106,7 +106,6 @@ class _NeuContainerState extends State<NeuContainer> {
       });
     } else if (widget.tapMode == TapMode.flat) {
       if (mounted) {
-        // Check if the widget is still in the tree
         setState(() {
           isTap = true;
         });
