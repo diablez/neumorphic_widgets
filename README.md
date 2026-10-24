@@ -9,7 +9,7 @@
 
 **[Get the package](https://pub.dev/packages/neumorphism_widgets)** · **[API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)** · **[Example app source](example/)** · **[Report an issue](https://github.com/diablez/neumorphic_widgets/issues)**
 
-> **Want to try the widgets?** The repository includes a [Flutter example application](example/lib/example.dart) with buttons, switches, sliders, checkboxes, and containers. GitHub READMEs cannot execute Flutter apps, so a browser-based interactive gallery would need to be deployed separately. There is no live web demo hosted yet.
+> **Play with the widgets:** An [interactive Flutter Web laboratory](example/lib/gallery.dart) is included in the repository, with live previews, theme and colour controls, and copyable Dart snippets. A [GitHub Actions build](.github/workflows/gallery.yml) produces a web artifact for testing. **There is no public demo URL yet**; GitHub READMEs cannot run Flutter directly.
 
 ## Widgets
 
@@ -172,19 +172,32 @@ The `TapMode` options available to `NeuContainer` and `NeuButton` are:
 
 Note: the `NeuButton.onPressed` callback receives the widget's internal toggled boolean, **not** a continuous pointer-down/pointer-up event.
 
-## Example application
+## Interactive widget laboratory
 
-The bundled [example app](example/) demonstrates the current published widgets, including button tap modes, colour options, horizontal and vertical switches and sliders, and container variants.
+The [new Flutter Web gallery](example/lib/gallery.dart) is an interactive demonstration of the real package widgets. Pick a component, adjust light/dark surfaces or accent colours, and copy the matching Dart snippet. The original [tabbed example application](example/lib/example.dart) is also preserved.
 
-To run it with a Flutter environment:
+Run the interactive gallery locally with a Flutter environment:
 
 ```sh
 cd example
 flutter pub get
-flutter run
+flutter run -d chrome -t lib/gallery.dart
 ```
 
-A separate Flutter Web site could later provide an interactive gallery, without embedding non-interactive screenshots into this README.
+Or produce the web build:
+
+```sh
+cd example
+flutter build web --release --target lib/gallery.dart --base-href /neumorphic_widgets/
+```
+
+The [gallery GitHub Actions workflow](.github/workflows/gallery.yml) builds the web output for pull requests and saves it as a downloadable artifact. Publishing it to GitHub Pages is a **separate deployment step**; the gallery is not yet hosted publicly.
+
+### More ways to learn
+
+- Expand the widget snippets above for compact Markdown examples.
+- Open the [API reference](https://pub.dev/documentation/neumorphism_widgets/latest/) for constructor parameters.
+- Try the real [interactive gallery source](example/lib/gallery.dart) to see state changes and generated code.
 
 ## Contributing
 
