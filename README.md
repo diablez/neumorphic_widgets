@@ -1,115 +1,274 @@
 # Neumorphic Widgets
 
-This package provides a set of neumorphic design widgets for Flutter. Neumorphism is a design trend that combines aspects of both flat design and skeuomorphism. This package makes it easy to incorporate this design style into your Flutter apps.
+[![Pub Version](https://img.shields.io/pub/v/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets)
+[![Pub Likes](https://img.shields.io/pub/likes/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets)
+[![Pub Points](https://img.shields.io/pub/points/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets/score)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## GitHub 
-https://github.com/diablez/neumorphic_widgets
+A collection of reusable **neumorphic widgets for Flutter**, featuring customisable surfaces, shadows, colours, shapes and interactive controls.
+
+Neumorphism combines soft highlights and shadows to give user interface elements a tactile, raised or recessed appearance.
+
+Build interfaces with buttons, containers, switches, sliders, checkboxes and app bars that share a consistent design language.
+
+**[pub.dev](https://pub.dev/packages/neumorphism_widgets) · [API Documentation](https://pub.dev/documentation/neumorphism_widgets/latest/) · [GitHub Repository](https://github.com/diablez/neumorphic_widgets) · [Example Application](https://github.com/diablez/neumorphic_widgets/tree/main/example)**
+
+---
 
 ## Features
 
-- NeuAppBar: A neumorphic design app bar.
-![AppBar](https://github.com/diablez/neumorphic_widgets/blob/main/assets/appbar.png)
-- NeuButton: A neumorphic design button.
-![Buttons and Checkboxes](https://github.com/diablez/neumorphic_widgets/blob/main/assets/buttons.png)
-- NeuCheckbox: A neumorphic design checkbox.
-- NeuContainer: A neumorphic design container.
-![Containers](https://github.com/diablez/neumorphic_widgets/blob/main/assets/containers.png)
-- NeuSlider: A neumorphic design slider.
-![Sliders](https://github.com/diablez/neumorphic_widgets/blob/main/assets/sliders.png)
-- NeuSwitch: A neumorphic design switch.
-![Switches](https://github.com/diablez/neumorphic_widgets/blob/main/assets/switches.png)
+| Widget | Description |
+|---|---|
+| `NeuContainer` | Customisable surfaces with configurable shadows, shapes, padding and tap animations |
+| `NeuButton` | Interactive buttons with multiple tap behaviours |
+| `NeuSwitch` | Horizontal or vertical animated switches |
+| `NeuSlider` | Horizontal or vertical sliders with customisable colours and dimensions |
+| `NeuCheckbox` | Toggleable checkboxes with customisable appearance |
+| `NeuAppBar` | An app bar with neumorphic styling |
 
-## Getting Started
+### Customisation
 
-To use this package, add `neumorphism_widgets` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
+- Light and dark neumorphic surfaces
+- Raised and inset visual effects
+- Custom background and shadow colours
+- Rounded rectangular and circular shapes
+- Optional gradients
+- Configurable padding and corner radius
+- Animated tap interactions
+- Horizontal and vertical controls
+- Enabled and disabled states
 
-## Examples
+---
 
-Check out the `example` directory to see examples of how to use this package.
+## Widget Gallery
+
+### App Bar
+
+A custom app bar using a neumorphic container.
+
+![NeuAppBar preview](https://raw.githubusercontent.com/diablez/neumorphic_widgets/main/assets/appbar.png)
+
+### Buttons and Checkboxes
+
+Interactive controls with customisable visual states.
+
+![NeuButton and NeuCheckbox preview](https://raw.githubusercontent.com/diablez/neumorphic_widgets/main/assets/buttons.png)
+
+### Containers
+
+Raised and inset surfaces for building custom layouts.
+
+![NeuContainer preview](https://raw.githubusercontent.com/diablez/neumorphic_widgets/main/assets/containers.png)
+
+### Sliders
+
+Customisable slider controls with horizontal and vertical orientations.
+
+![NeuSlider preview](https://raw.githubusercontent.com/diablez/neumorphic_widgets/main/assets/sliders.png)
+
+### Switches
+
+Animated toggle switches with custom colours.
+
+![NeuSwitch preview](https://raw.githubusercontent.com/diablez/neumorphic_widgets/main/assets/switches.png)
+
+---
+
+## Installation
+
+Add the package to your Flutter project:
+
+```bash
+flutter pub add neumorphism_widgets
+```
+
+Alternatively, add it manually to `pubspec.yaml`:
+
+```yaml
+dependencies:
+  neumorphism_widgets: ^0.0.8
+```
+
+Import the widget library:
+
+```dart
+import 'package:neumorphism_widgets/neumorphism_widgets.dart';
+```
+
+The examples below also use Flutter's Material library:
+
+```dart
+import 'package:flutter/material.dart';
+```
+
+---
 
 ## Usage
 
-Here is an example of how to use the widgets and their options:
+### NeuButton
 
-`NeuButton`, a neumorphic button:
+A button with configurable tap animation and appearance.
 
 ```dart
 NeuButton(
-  onPressed: (isTap) {
-    print('NeuButton pressed. isTap: $isTap');
-  }, // relatively the same as a standard on pressed
-  child: Text('NeuButton'), // required for buttons
-  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
-  tapMode: TapMode.dynamic, // tapmode is the animation for the button.
-  enabled: true, // controlls the onPressed.
+  boxShadowColor: Colors.grey.shade200,
+  tapMode: TapMode.dynamic,
+  enabled: true,
+  onPressed: (isPressed) {
+    debugPrint('Button state: $isPressed');
+  },
+  child: const Text('Press me'),
 )
-`NeuContainer` is a neumorphic design container. Here is a simple example of using `NeuContainer`:
+```
+
+### NeuContainer
+
+A reusable neumorphic surface supporting custom content, shape, padding, colour and tap behaviour.
 
 ```dart
 NeuContainer(
+  boxShadowColor: Colors.grey.shade200,
+  radius: 16,
+  padding: const EdgeInsets.all(20),
+  shape: BoxShape.rectangle,
+  tapMode: TapMode.dynamic,
   onPressed: () {
-    print('NeuContainer pressed');
-  },// relatively the same as a standard on pressed
-  child: Text('NeuContainer'), // widgets you want to have inside the container
-  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
-  radius: 15,
-  shape: BoxShape.rectangle, // can be set to circle or rectangle, defaults to rectangle
-  padding: EdgeInsets.all(10), // the padding around the child widgets in the container
-  tapMode: TapMode.dynamic, // tapmode is the animation for the button, defaults to none
+    debugPrint('Container tapped');
+  },
+  child: const Text('Neumorphic surface'),
 )
+```
 
-And here is an example of using `NeuSwitch`:
+To create an inset-style container, set `inset: true`.
+
+### NeuSwitch
+
+An animated switch with customisable colours and orientation.
 
 ```dart
 NeuSwitch(
-  onChanged: (value) {
-    print('NeuSwitch value: $value');
-  }, // same as standard on changed
-  value: false, 
-  boxShadow: Colors.grey[500]!,
+  boxShadowColor: Colors.grey.shade200,
+  activeColor: Colors.green,
+  value: false,
   enabled: true,
+  onChanged: (value) {
+    debugPrint('Switch: $value');
+  },
 )
+```
 
-And here is an example of using `NeuAppBar`:
+Set `vertical: true` to change the switch orientation.
 
-```dart
-NeuAppBar(
-  isScrolled: ValueNotifier<bool>(false),
-  boxShadowColor: Colors.grey[500]!,
-  title: Text('NeuAppBar'),
-  leading: Icon(Icons.menu),
-  centerTitle: true,
-  actions: <Widget>[
-    IconButton(
-      icon: Icon(Icons.search),
-      onPressed: () {
-        print('Search button pressed');
-      },
-    ),
-  ],
-)
+### NeuSlider
 
-And here is an example of using `NeuSlider`:
+A slider with configurable dimensions, orientation and colours.
 
 ```dart
 NeuSlider(
-  onChanged: (value) {
-    print('NeuSlider value: $value');
-  },
+  boxShadowColor: Colors.grey.shade200,
+  color: Colors.green,
   value: 50,
-  boxShadow: Colors.grey[500]!,
   enabled: true,
   length: 200,
   width: 30,
+  onChanged: (value) {
+    debugPrint('Slider: $value');
+  },
 )
+```
 
+Set `vertical: true` to use a vertical slider.
 
-And here is an example of using `NeuCheckbox`:
+The slider reports values between `0` and `100`.
+
+### NeuCheckbox
+
+A customisable checkbox with its own internal checked state.
 
 ```dart
 NeuCheckbox(
-  boxShadowColor: Colors.grey[500]!,
+  boxShadowColor: Colors.grey.shade200,
   isChecked: false,
   activeColor: Colors.green,
   enable: true,
 )
+```
+
+**Note:** In version `0.0.8`, `NeuCheckbox` uses the argument `enable`, rather than `enabled`, and doesn't expose an `onChanged` callback.
+
+### NeuAppBar
+
+A neumorphic app bar supporting leading widgets, titles, actions and an optional bottom widget.
+
+```dart
+Scaffold(
+  appBar: NeuAppBar(
+    boxShadowColor: Colors.grey.shade200,
+    title: const Text('Neumorphic Widgets'),
+    centerTitle: true,
+    leading: const Icon(Icons.menu),
+    actions: [
+      IconButton(
+        icon: const Icon(Icons.search),
+        onPressed: () {
+          debugPrint('Search pressed');
+        },
+      ),
+    ],
+  ),
+  body: const Center(
+    child: Text('Hello, neumorphism!'),
+  ),
+)
+```
+
+---
+
+## Tap Modes
+
+`NeuContainer` and `NeuButton` support several interaction modes:
+
+| Mode | Behaviour |
+|---|---|
+| `TapMode.none` | No animated pressed state |
+| `TapMode.static` | Toggles the pressed state with each tap |
+| `TapMode.dynamic` | Briefly activates the pressed state, then releases |
+| `TapMode.flat` | Switches to and remains in the flat state |
+
+Use `tapMode` to select the interaction behaviour appropriate for your UI.
+
+---
+
+## Example Application
+
+An example Flutter application is included in the [`example`](https://github.com/diablez/neumorphic_widgets/tree/main/example) directory.
+
+It demonstrates the included widgets and different configuration options.
+
+To run the example locally with Flutter installed:
+
+```bash
+cd example
+flutter pub get
+flutter run
+```
+
+---
+
+## Documentation and Resources
+
+- [Published package on pub.dev](https://pub.dev/packages/neumorphism_widgets)
+- [API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)
+- [Source code](https://github.com/diablez/neumorphic_widgets)
+- [Example application](https://github.com/diablez/neumorphic_widgets/tree/main/example)
+- [Report an issue](https://github.com/diablez/neumorphic_widgets/issues)
+
+## Contributing
+
+Bug reports, suggestions and contributions are welcome.
+
+If you encounter an issue, please open a GitHub issue with a description and a reproducible example.
+
+## License
+
+Distributed under the [MIT License](LICENSE).
