@@ -3,7 +3,7 @@ description: "Example for neumorphism_widgets."
 repository: https://github.com/diablez/neumorphic_widgets/tree/main/example
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'https://pub.dev' # This line allows the package to be published to pub.dev
+publish_to: 'none' # Demo application; never publish as a package
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -31,7 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  neumorphism_widgets: ^0.0.3
+  neumorphism_widgets:
+    path: ../
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
