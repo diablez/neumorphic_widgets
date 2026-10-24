@@ -230,7 +230,7 @@ class _WidgetLaboratoryState extends State<WidgetLaboratory> {
         );
       case 4:
         return NeuCheckbox(
-          key: ValueKey('checkbox-$dark-$accentIndex'),
+          key: const ValueKey('gallery-checkbox'),
           boxShadowColor: surface,
           activeColor: accent,
           enable: enabled,
