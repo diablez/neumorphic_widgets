@@ -1,115 +1,195 @@
 # Neumorphic Widgets
 
-This package provides a set of neumorphic design widgets for Flutter. Neumorphism is a design trend that combines aspects of both flat design and skeuomorphism. This package makes it easy to incorporate this design style into your Flutter apps.
+[![pub.dev version](https://img.shields.io/pub/v/neumorphism_widgets?label=pub.dev)](https://pub.dev/packages/neumorphism_widgets)
+[![pub.dev likes](https://img.shields.io/pub/likes/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets)
+[![pub.dev points](https://img.shields.io/pub/points/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets/score)
+[![MIT license](https://img.shields.io/badge/license-MIT-7A9E90)](LICENSE)
 
-## GitHub 
-https://github.com/diablez/neumorphic_widgets
+**Customisable, tactile Flutter controls.** A collection of widgets with soft raised and recessed surfaces, adjustable shadows, colours, shapes, and tap animations.
 
-## Features
+**[Get the package](https://pub.dev/packages/neumorphism_widgets)** · **[API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)** · **[Example app source](example/)** · **[Report an issue](https://github.com/diablez/neumorphic_widgets/issues)**
 
-- NeuAppBar: A neumorphic design app bar.
-![AppBar](https://github.com/diablez/neumorphic_widgets/blob/main/assets/appbar.png)
-- NeuButton: A neumorphic design button.
-![Buttons and Checkboxes](https://github.com/diablez/neumorphic_widgets/blob/main/assets/buttons.png)
-- NeuCheckbox: A neumorphic design checkbox.
-- NeuContainer: A neumorphic design container.
-![Containers](https://github.com/diablez/neumorphic_widgets/blob/main/assets/containers.png)
-- NeuSlider: A neumorphic design slider.
-![Sliders](https://github.com/diablez/neumorphic_widgets/blob/main/assets/sliders.png)
-- NeuSwitch: A neumorphic design switch.
-![Switches](https://github.com/diablez/neumorphic_widgets/blob/main/assets/switches.png)
+> **Want to try the widgets?** The repository includes a [Flutter example application](example/lib/example.dart) with buttons, switches, sliders, checkboxes, and containers. GitHub READMEs cannot execute Flutter apps, so a browser-based interactive gallery would need to be deployed separately. There is no live web demo hosted yet.
 
-## Getting Started
+## Widgets
 
-To use this package, add `neumorphism_widgets` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/packages-and-plugins/using-packages).
+| Widget | What it does | Customisation |
+| --- | --- | --- |
+| `NeuContainer` | Reusable raised or inverted-elevation surface | Colours, gradients, shape, radius, padding, tap modes |
+| `NeuButton` | Button with configurable tap animation | Shape, colour, enabled state, tap mode |
+| `NeuSwitch` | Animated toggle | Vertical/horizontal orientation, active/inactive colours |
+| `NeuSlider` | 0–100 value slider | Orientation, length, width, track/handle colour |
+| `NeuCheckbox` | Self-contained checkbox control | Shape, active/inactive colours, enabled state |
+| `NeuAppBar` | Neumorphic wrapper around a Flutter app bar | Title, leading widget, actions, bottom widget |
 
-## Examples
+The library supports light or dark colour schemes. The visual result depends on the surface and shadow colours you supply.
 
-Check out the `example` directory to see examples of how to use this package.
+## Installation
 
-## Usage
+Add the published package to an existing Flutter project:
 
-Here is an example of how to use the widgets and their options:
+```sh
+flutter pub add neumorphism_widgets
+```
 
-`NeuButton`, a neumorphic button:
+Or declare version `^0.0.8` in `pubspec.yaml`. Then import:
 
 ```dart
-NeuButton(
-  onPressed: (isTap) {
-    print('NeuButton pressed. isTap: $isTap');
-  }, // relatively the same as a standard on pressed
-  child: Text('NeuButton'), // required for buttons
-  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
-  tapMode: TapMode.dynamic, // tapmode is the animation for the button.
-  enabled: true, // controlls the onPressed.
-)
-`NeuContainer` is a neumorphic design container. Here is a simple example of using `NeuContainer`:
+import 'package:neumorphism_widgets/neumorphism_widgets.dart';
+```
+
+## Quick start
+
+Add the widgets inside a Flutter `build` method. To get a consistent result, match `boxShadowColor` to the surrounding surface colour:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:neumorphism_widgets/neumorphism_widgets.dart';
+
+// Inside a widget's build method:
+final surface = Colors.grey.shade200;
+
+return ColoredBox(
+  color: surface,
+  child: Center(
+    child: NeuButton(
+      boxShadowColor: surface,
+      tapMode: TapMode.dynamic,
+      onPressed: (value) => debugPrint('Button callback: $value'),
+      child: const Text('Press me'),
+    ),
+  ),
+);
+```
+
+### More widget examples
+
+<details>
+<summary><strong>NeuContainer</strong> — raised or inverted-elevation surfaces</summary>
 
 ```dart
 NeuContainer(
-  onPressed: () {
-    print('NeuContainer pressed');
-  },// relatively the same as a standard on pressed
-  child: Text('NeuContainer'), // widgets you want to have inside the container
-  boxShadowColor: Colors.grey[500]!, // the color of the shadows, set it as the parent widget color
-  radius: 15,
-  shape: BoxShape.rectangle, // can be set to circle or rectangle, defaults to rectangle
-  padding: EdgeInsets.all(10), // the padding around the child widgets in the container
-  tapMode: TapMode.dynamic, // tapmode is the animation for the button, defaults to none
+  boxShadowColor: Colors.grey.shade200,
+  inset: true,
+  radius: 16,
+  padding: const EdgeInsets.all(20),
+  shape: BoxShape.rectangle,
+  tapMode: TapMode.dynamic,
+  onPressed: () => debugPrint('Container tapped'),
+  child: const Text('A tactile surface'),
 )
+```
 
-And here is an example of using `NeuSwitch`:
+</details>
+
+<details>
+<summary><strong>NeuSwitch</strong> — animated horizontal/vertical toggle</summary>
+
+Use this inside a `StatefulWidget` with a `bool isEnabled = false;` field.
 
 ```dart
 NeuSwitch(
-  onChanged: (value) {
-    print('NeuSwitch value: $value');
-  }, // same as standard on changed
-  value: false, 
-  boxShadow: Colors.grey[500]!,
-  enabled: true,
+  boxShadowColor: Colors.grey.shade200,
+  activeColor: Colors.teal,
+  value: isEnabled,
+  onChanged: (value) => setState(() => isEnabled = value),
 )
+```
 
-And here is an example of using `NeuAppBar`:
+Set `vertical: true` for a vertical toggle.
 
-```dart
-NeuAppBar(
-  isScrolled: ValueNotifier<bool>(false),
-  boxShadowColor: Colors.grey[500]!,
-  title: Text('NeuAppBar'),
-  leading: Icon(Icons.menu),
-  centerTitle: true,
-  actions: <Widget>[
-    IconButton(
-      icon: Icon(Icons.search),
-      onPressed: () {
-        print('Search button pressed');
-      },
-    ),
-  ],
-)
+</details>
 
-And here is an example of using `NeuSlider`:
+<details>
+<summary><strong>NeuSlider</strong> — adjustable 0–100 value</summary>
+
+Use this inside a `StatefulWidget` with a `double brightness = 50;` field.
 
 ```dart
 NeuSlider(
-  onChanged: (value) {
-    print('NeuSlider value: $value');
-  },
-  value: 50,
-  boxShadow: Colors.grey[500]!,
-  enabled: true,
+  boxShadowColor: Colors.grey.shade200,
+  color: Colors.teal,
+  value: brightness,
   length: 200,
   width: 30,
+  onChanged: (value) => setState(() => brightness = value),
 )
+```
 
+Set `vertical: true` to rotate the control.
 
-And here is an example of using `NeuCheckbox`:
+</details>
+
+<details>
+<summary><strong>NeuCheckbox</strong> — self-contained selection</summary>
 
 ```dart
 NeuCheckbox(
-  boxShadowColor: Colors.grey[500]!,
+  boxShadowColor: Colors.grey.shade200,
   isChecked: false,
-  activeColor: Colors.green,
+  activeColor: Colors.teal,
   enable: true,
 )
+```
+
+**v0.0.8 note:** `NeuCheckbox` maintains its checked state internally. It uses `enable` (not `enabled`) and does not expose an `onChanged` callback.
+
+</details>
+
+<details>
+<summary><strong>NeuAppBar</strong> — tactile app bar</summary>
+
+```dart
+Scaffold(
+  appBar: NeuAppBar(
+    boxShadowColor: Colors.grey.shade200,
+    title: const Text('Neumorphic Widgets'),
+    centerTitle: true,
+    leading: const Icon(Icons.menu),
+    actions: [
+      IconButton(
+        icon: const Icon(Icons.search),
+        onPressed: () => debugPrint('Search tapped'),
+      ),
+    ],
+  ),
+  body: const Center(child: Text('Hello, neumorphism!')),
+)
+```
+
+</details>
+
+## Tap behaviour
+
+The `TapMode` options available to `NeuContainer` and `NeuButton` are:
+
+| Mode | Effect |
+| --- | --- |
+| `TapMode.none` | Tapping does not change the elevation state |
+| `TapMode.static` | Each tap toggles the pressed state |
+| `TapMode.dynamic` | Brief pressed-state animation, then release |
+| `TapMode.flat` | Remains in its flat/pressed state |
+
+Note: the `NeuButton.onPressed` callback receives the widget's internal toggled boolean, **not** a continuous pointer-down/pointer-up event.
+
+## Example application
+
+The bundled [example app](example/) demonstrates the current published widgets, including button tap modes, colour options, horizontal and vertical switches and sliders, and container variants.
+
+To run it with a Flutter environment:
+
+```sh
+cd example
+flutter pub get
+flutter run
+```
+
+A separate Flutter Web site could later provide an interactive gallery, without embedding non-interactive screenshots into this README.
+
+## Contributing
+
+Issues, improvements, accessibility feedback, and pull requests are welcome. Please use the [issue tracker](https://github.com/diablez/neumorphic_widgets/issues) for bug reports and feature requests.
+
+## License
+
+This project is available under the [MIT License](LICENSE).
