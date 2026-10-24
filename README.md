@@ -1,5 +1,7 @@
 # Neumorphic Widgets
 
+<p align="right"><sub><strong>SETO</strong> / ENGINEERING · ROBOTICS · SOFTWARE</sub></p>
+
 [![pub.dev version](https://img.shields.io/pub/v/neumorphism_widgets?label=pub.dev)](https://pub.dev/packages/neumorphism_widgets)
 [![pub.dev likes](https://img.shields.io/pub/likes/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets)
 [![pub.dev points](https://img.shields.io/pub/points/neumorphism_widgets)](https://pub.dev/packages/neumorphism_widgets/score)
@@ -202,6 +204,12 @@ The [gallery GitHub Actions workflow](.github/workflows/gallery.yml) builds the 
 ## Contributing
 
 Issues, improvements, accessibility feedback, and pull requests are welcome. Please use the [issue tracker](https://github.com/diablez/neumorphic_widgets/issues) for bug reports and feature requests.
+
+## SETO · Support development
+
+Neumorphic Widgets is developed under **SETO**, an identity for engineering, robotics, and software projects. If the library has been useful, you can [buy SETO a coffee](https://buymeacoffee.com/SETO) to support future work.
+
+Support is optional; the package remains open source under the MIT License. The [SETO visual identity guide](docs/SETO_BRANDING.md) documents the project's brand colours, typography, and graphic principles.
 
 ## License
 
