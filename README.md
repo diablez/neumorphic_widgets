@@ -7,7 +7,7 @@
 
 **Customisable, tactile Flutter controls.** A collection of widgets with soft raised and recessed surfaces, adjustable shadows, colours, shapes, and tap animations.
 
-**[Get the package](https://pub.dev/packages/neumorphism_widgets)** · **[API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)** · **[Example app source](example/)** · **[Report an issue](https://github.com/diablez/neumorphic_widgets/issues)**
+**[Get the package](https://pub.dev/packages/neumorphism_widgets)** · **[API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)** · **[Example app source](example/)** · **[Report an issue](https://github.com/SETO-ENGINEERING/neumorphic_widgets/issues)**
 
 > **Play with the widgets:** An [interactive Flutter Web laboratory](example/lib/gallery.dart) is included in the repository, with live previews, theme and colour controls, and copyable Dart snippets. A [GitHub Actions build](.github/workflows/gallery.yml) produces a web artifact for testing. **There is no public demo URL yet**; GitHub READMEs cannot run Flutter directly.
 
@@ -201,7 +201,7 @@ The [gallery GitHub Actions workflow](.github/workflows/gallery.yml) builds the 
 
 ## Contributing
 
-Issues, improvements, accessibility feedback, and pull requests are welcome. Please use the [issue tracker](https://github.com/diablez/neumorphic_widgets/issues) for bug reports and feature requests.
+Issues, improvements, accessibility feedback, and pull requests are welcome. Please use the [issue tracker](https://github.com/SETO-ENGINEERING/neumorphic_widgets/issues) for bug reports and feature requests.
 
 ## License
 
