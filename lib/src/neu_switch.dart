@@ -167,8 +167,8 @@ class _NeuSwitchState extends State<NeuSwitch>
                       }
                     },
                     color: isSwitched
-                        ? widget.activeColor?.withOpacity(0.6)
-                        : widget.inactiveColor?.withOpacity(0.6),
+                        ? widget.activeColor?.withAlpha((255 * 0.6).round())
+                        : widget.inactiveColor?.withAlpha((255 * 0.6).round()),
                   ),
                 ),
               ),

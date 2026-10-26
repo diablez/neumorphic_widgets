@@ -287,7 +287,7 @@ class _WidgetLaboratoryState extends State<WidgetLaboratory> {
       const Text('Button tap behaviour'),
       const SizedBox(height: 8),
       DropdownButtonFormField<TapMode>(
-        value: tapMode,
+        initialValue: tapMode,
         decoration: const InputDecoration(
           border: OutlineInputBorder(), isDense: true),
         items: [

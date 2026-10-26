@@ -39,7 +39,7 @@ class _NeuCheckboxState extends State<NeuCheckbox> {
         padding: const EdgeInsets.all(3),
         tapMode: widget.enable ? widget.tapMode : TapMode.flat,
         color: checked
-            ? widget.activeColor?.withOpacity(0.6)
+            ? widget.activeColor?.withAlpha((255 * 0.6).round())
             : widget.inactiveColor,
         boxShadowColor: widget.boxShadowColor,
         shape: widget.shape,
