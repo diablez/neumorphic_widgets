@@ -3,6 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:neumorphism_widgets/neumorphism_widgets.dart';
 
 void main() {
+  test('color helpers preserve the legacy 8-bit calculations', () {
+    const color = Color.fromARGB(128, 101, 151, 201);
+
+    expect(darkenColor(color, 0.3), const Color.fromARGB(128, 71, 106, 141));
+    expect(lightenColor(color, 0.25), const Color.fromARGB(128, 140, 177, 215));
+  });
+
   testWidgets('NeuButton test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MaterialApp(

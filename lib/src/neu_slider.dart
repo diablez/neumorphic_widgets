@@ -55,6 +55,9 @@ class _NeuSliderState extends State<NeuSlider> {
       upperlimit = height - width;
     }
     double offset = widget.width / 7.5;
+    final opacity = widget.withOpacity
+        ? ((_currentSliderValue.clamp(0, 100) / 100) - 0.4).clamp(0.0, 1.0)
+        : 1.0;
     return SizedBox(
       width: width,
       height: height,
@@ -63,9 +66,7 @@ class _NeuSliderState extends State<NeuSlider> {
         enabled: widget.enabled,
         boxShadowColor: widget.boxShadowColor,
         onStart: widget.onStart,
-        color: widget.color.withOpacity(widget.withOpacity
-            ? ((_currentSliderValue.clamp(0, 100) / 100) - 0.4).clamp(0.0, 1.0)
-            : 1.0),
+        color: (widget.color as Color).withAlpha((255 * opacity).round()),
         inset: true,
         padding: const EdgeInsets.all(0),
         shape: BoxShape.rectangle,
