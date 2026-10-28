@@ -9,7 +9,7 @@
 
 **[Get the package](https://pub.dev/packages/neumorphism_widgets)** · **[API reference](https://pub.dev/documentation/neumorphism_widgets/latest/)** · **[Example app source](example/)** · **[Report an issue](https://github.com/SETO-ENGINEERING/neumorphic_widgets/issues)**
 
-> **Play with the widgets:** An [interactive Flutter Web laboratory](example/lib/gallery.dart) is included in the repository, with live previews, theme and colour controls, and copyable Dart snippets. A [GitHub Actions build](.github/workflows/gallery.yml) produces a web artifact for testing. **There is no public demo URL yet**; GitHub READMEs cannot run Flutter directly.
+> **Play with the widgets:** An [interactive Flutter Web laboratory](https://seto-engineering.github.io/neumorphic_widgets/?utm_source=chatgpt.com) is included in the repository, with live previews, theme and colour controls, and copyable Dart snippets. A [GitHub Actions build](.github/workflows/gallery.yml) produces a web artifact for testing. **There is no public demo URL yet**; GitHub READMEs cannot run Flutter directly.
 
 ## Widgets
 
@@ -174,7 +174,7 @@ Note: the `NeuButton.onPressed` callback receives the widget's internal toggled 
 
 ## Interactive widget laboratory
 
-The [new Flutter Web gallery](example/lib/gallery.dart) is an interactive demonstration of the real package widgets. Pick a component, adjust light/dark surfaces or accent colours, and copy the matching Dart snippet. The original [tabbed example application](example/lib/example.dart) is also preserved.
+The [new Flutter Web gallery](https://seto-engineering.github.io/neumorphic_widgets/?utm_source=chatgpt.com) is an interactive demonstration of the real package widgets. Pick a component, adjust light/dark surfaces or accent colours, and copy the matching Dart snippet. The original [tabbed example application](https://seto-engineering.github.io/neumorphic_widgets/?utm_source=chatgpt.com) is also preserved.
 
 Run the interactive gallery locally with a Flutter environment:
 
@@ -197,7 +197,7 @@ The [gallery GitHub Actions workflow](.github/workflows/gallery.yml) builds the 
 
 - Expand the widget snippets above for compact Markdown examples.
 - Open the [API reference](https://pub.dev/documentation/neumorphism_widgets/latest/) for constructor parameters.
-- Try the real [interactive gallery source](example/lib/gallery.dart) to see state changes and generated code.
+- Try the real [interactive gallery source]([example/lib/gallery.dart](https://seto-engineering.github.io/neumorphic_widgets/?utm_source=chatgpt.com)) to see state changes and generated code.
 
 ## Contributing
 
